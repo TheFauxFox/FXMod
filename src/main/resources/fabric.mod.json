@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "fxmod",
+  "version": "${version}",
+  "name": "FXMod",
+  "description": "The all in one mod",
+  "authors": [
+    "Faux"
+  ],
+  "contact": {
+    "repo": "https://github.com/faux/FXMod"
+  },
+  "license": "MIT",
+  "icon": "assets/FXMod/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "dev.paw.fxmod.FXMod"
+    ]
+  },
+  "mixins": [
+    "FXMod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
