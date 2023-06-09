@@ -2,7 +2,7 @@
  - [x] Fullbright
  - [ ] Freecam
  - [ ] Item ESP
- - [ ] ToolBreak Warning
+ - [X] ToolBreak Warning
  - [ ] Bee ESP (For hives)
  - [ ] Item Scrolling
  - [ ] Click dragging

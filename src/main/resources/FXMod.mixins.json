@@ -7,8 +7,10 @@
   ],
   "client": [
     "ClickableWidgetMixin",
+    "InGameHudMixin",
     "KeyBindingMixin",
     "LightmapTextureManagerMixin",
+    "MinecraftClientMixin",
     "OptionMixin"
   ],
   "injectors": {

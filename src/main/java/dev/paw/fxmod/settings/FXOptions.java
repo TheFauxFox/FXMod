@@ -30,7 +30,7 @@ public class FXOptions
 	private final Map<String, SimpleOption<?>> features;
 
 	// all the FEATURES
-	public final SimpleOption<Boolean> fullbright;
+	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning;
 
 	public FXOptions()
 	{
@@ -43,6 +43,20 @@ public class FXOptions
 			false
 		);
 		features.put("fullbright", fullbright);
+
+		noToolBreaking = SimpleOption.ofBoolean(
+				"fxmod.mod.notoolbreak.name",
+				tooltip("fxmod.mod.notoolbreak.tooltip", true),
+				true
+		);
+		features.put("notoolbreak", noToolBreaking);
+
+		toolWarning = SimpleOption.ofBoolean(
+				"fxmod.mod.toolwarning.name",
+				tooltip("fxmod.mod.toolwarning.tooltip", true),
+				true
+		);
+		features.put("toolwarning", toolWarning);
 
 		init();
 	}

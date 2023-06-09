@@ -1,22 +1,34 @@
 {
-  "### Mod Config/Option screen stuff": "",
-  "fxmod.options.title": "FauxMod Options",
-  "fxmod.options.keybind.name": "Open FXMod Settings",
+  "######### Mod Config/Option screen stuff": "",
+    "fxmod.options.title": "FauxMod Options",
+    "fxmod.options.keybind.name": "Open FXMod Settings",
 
-  "fxmod.options.category.render": "Render",
+    "fxmod.options.category.render": "Render",
+    "fxmod.options.category.tools": "Tools",
 
-  "fxmod.options.mod_default": "Default: %s",
-  "fxmod.options.mod_default.button": "Defaults",
-  "fxmod.options.mod_default.button.tooltip": "§cWARNING!§f This will reset all options to their default values.§r",
+    "fxmod.options.mod_default": "Default: %s",
+    "fxmod.options.mod_default.button": "Defaults",
+    "fxmod.options.mod_default.button.tooltip": "§cWARNING!§f This will reset all options to their default values.§r",
 
-  "---### Mod names & button stuffs": "",
-  ">>>### RENDER Category": "",
-  "fxmod.mod.fullbright.name": "Fullbright",
-  "fxmod.mod.fullbright.tooltip": "Removes the concept of darkness from your world.",
+  "######### Mod names & button stuffs": "",
+    ">>>######### RENDER Category": "",
+      "fxmod.mod.fullbright.name": "Fullbright",
+      "fxmod.mod.fullbright.tooltip": "Removes the concept of darkness from your world.",
 
-  "### Text display stuff": "",
-  "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
+    ">>>######### TOOLS Category": "",
+      "fxmod.mod.toolwarning.name": "Tool Warning",
+      "fxmod.mod.toolwarning.tooltip": "When your tool gets close to breaking, a message will appear.",
 
-  "fxmod.mod.onEnable": "%s has been §aenabled§r",
-  "fxmod.mod.onDisable": "%s has been §cdisabled§r"
+      "fxmod.mod.notoolbreak.name": "No Tool Breaking",
+      "fxmod.mod.notoolbreak.tooltip": "Stops you from using a tool once it hits 2 durability (overridden by keybind)",
+      "fxmod.mod.notoolbreak.keybind": "Tool break override",
+
+  "######### Text display stuff": "",
+    "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
+
+    "fxmod.mod.onEnable": "%s has been §aenabled§r",
+    "fxmod.mod.onDisable": "%s has been §cdisabled§r",
+
+    "fxmod.mod.toolwarning.popup.mainhand": "Main hand tool has %d durability left",
+    "fxmod.mod.toolwarning.popup.offhand": "Off-hand tool has %d durability left"
 }
