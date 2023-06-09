@@ -6,7 +6,10 @@
   "mixins": [
   ],
   "client": [
-    "LightmapTextureManagerMixin"
+    "ClickableWidgetMixin",
+    "KeyBindingMixin",
+    "LightmapTextureManagerMixin",
+    "OptionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

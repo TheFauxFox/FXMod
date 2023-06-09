@@ -1,0 +1,22 @@
+{
+  "### Mod Config/Option screen stuff": "",
+  "fxmod.options.title": "FauxMod Options",
+  "fxmod.options.keybind.name": "Open FXMod Settings",
+
+  "fxmod.options.category.render": "Render",
+
+  "fxmod.options.mod_default": "Default: %s",
+  "fxmod.options.mod_default.button": "Defaults",
+  "fxmod.options.mod_default.button.tooltip": "§cWARNING!§f This will reset all options to their default values.§r",
+
+  "---### Mod names & button stuffs": "",
+  ">>>### RENDER Category": "",
+  "fxmod.mod.fullbright.name": "Fullbright",
+  "fxmod.mod.fullbright.tooltip": "Removes the concept of darkness from your world.",
+
+  "### Text display stuff": "",
+  "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
+
+  "fxmod.mod.onEnable": "%s has been §aenabled§r",
+  "fxmod.mod.onDisable": "%s has been §cdisabled§r"
+}

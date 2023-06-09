@@ -1,5 +1,6 @@
 package dev.paw.fxmod.mixin;
 
+import dev.paw.fxmod.FXMod;
 import net.minecraft.client.render.LightmapTextureManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,6 +13,8 @@ abstract class LightmapTextureManagerMixin
     @Inject(method = "getBrightness", at = @At("HEAD"), cancellable = true)
     private static void onGetBrightness(CallbackInfoReturnable<Float> info)
     {
-        info.setReturnValue(1f);
+        if (FXMod.OPTIONS.fullbright.getValue()) {
+            info.setReturnValue(1f);
+        }
     }
 }

@@ -11,11 +11,14 @@
     "repo": "https://github.com/faux/FXMod"
   },
   "license": "MIT",
-  "icon": "assets/FXMod/icon.png",
+  "icon": "assets/fxmod/icon.png",
   "environment": "client",
   "entrypoints": {
-    "main": [
+    "client": [
       "dev.paw.fxmod.FXMod"
+    ],
+    "modmenu": [
+      "dev.paw.fxmod.settings.ModMenuSettingsImpl"
     ]
   },
   "mixins": [
