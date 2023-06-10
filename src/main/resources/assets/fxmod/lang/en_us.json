@@ -20,7 +20,7 @@
       "fxmod.mod.toolwarning.tooltip": "When your tool gets close to breaking, a message will appear.",
 
       "fxmod.mod.notoolbreak.name": "No Tool Breaking",
-      "fxmod.mod.notoolbreak.tooltip": "Stops you from using a tool once it hits 2 durability (overridden by keybind)",
+      "fxmod.mod.notoolbreak.tooltip": "Stops you from using a tool once it hits 2 durability (overriden by keybind)",
       "fxmod.mod.notoolbreak.keybind": "Tool break override",
 
   "######### Text display stuff": "",

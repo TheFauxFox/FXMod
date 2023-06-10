@@ -70,8 +70,8 @@ public class FXMod implements ClientModInitializer {
         }
     }
 
-    public boolean isToolBreakingOverriden() {
-        return toolBreakingOverrideKeybind.isPressed();
+    public boolean toolIsNotOverriden() {
+        return !toolBreakingOverrideKeybind.isPressed();
     }
 
     private void registerCallbacks()
