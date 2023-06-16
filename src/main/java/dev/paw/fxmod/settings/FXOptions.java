@@ -30,7 +30,7 @@ public class FXOptions
 	private final Map<String, SimpleOption<?>> features;
 
 	// all the FEATURES
-	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning;
+	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning, beeESP;
 
 	public FXOptions()
 	{
@@ -57,6 +57,13 @@ public class FXOptions
 				true
 		);
 		features.put("toolwarning", toolWarning);
+
+		beeESP = SimpleOption.ofBoolean(
+				"fxmod.mod.beeesp.name",
+				tooltip("fxmod.mod.beeesp.tooltip", false),
+				false
+		);
+		features.put("beeesp", beeESP);
 
 		init();
 	}

@@ -2,10 +2,12 @@ package dev.paw.fxmod;
 
 import dev.paw.fxmod.settings.FXOptions;
 import dev.paw.fxmod.settings.FXSettingsScreen;
-import dev.paw.fxmod.utils.FXModVars;
+import dev.paw.fxmod.utils.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.minecraft.block.entity.BeehiveBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.SimpleOption;
@@ -13,7 +15,7 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.*;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +46,7 @@ public class FXMod implements ClientModInitializer {
     {
         KeyBinding openSettingsMenuKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.options.keybind.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         KeyBinding fullbrightKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.fullbright.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
+        KeyBinding beeespKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.beeesp.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         toolBreakingOverrideKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.notoolbreak.keybind", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_ALT, "FXMod"));
 
         ClientTickEvents.END_WORLD_TICK.register(client ->
@@ -53,6 +56,7 @@ public class FXMod implements ClientModInitializer {
             }
 
             handleFeatureKeybindPress(fullbrightKeybind, FXMod.OPTIONS.fullbright, "fxmod.mod.fullbright.name");
+            handleFeatureKeybindPress(beeespKeybind, FXMod.OPTIONS.beeESP, "fxmod.mod.beeesp.name");
         });
     }
 
@@ -107,7 +111,21 @@ public class FXMod implements ClientModInitializer {
                 FXMod.VARS.mainHandToolItemStack = mainHandItem;
                 FXMod.VARS.offHandToolItemStack = offHandItem;
             }
-
         });
+
+        WorldRenderEvents.AFTER_ENTITIES.register((context) -> {
+            OptifineHooks.doOptifineAwareRender(context, (context1, simple) -> {
+                if (!OPTIONS.beeESP.getValue()) return;
+
+                Render3d.enable(context);
+
+                WorldUtils.getBlocksInRadius(2, BeehiveBlockEntity.class).forEach((pos) -> {
+                    Render3d.drawBox(context, pos, new Color(255,255,0));
+                });
+
+                Render3d.disable(context);
+            });
+        });
+
     }
 }

@@ -4,6 +4,7 @@
   "package": "dev.paw.fxmod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BlockMixin"
   ],
   "client": [
     "ClickableWidgetMixin",

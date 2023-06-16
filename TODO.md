@@ -2,8 +2,8 @@
  - [x] Fullbright
  - [ ] Freecam
  - [ ] Item ESP
- - [X] ToolBreak Warning
- - [ ] Bee ESP (For hives)
+ - [x] ToolBreak Warning
+ - [x] Bee ESP (For hives)
  - [ ] Item Scrolling
  - [ ] Click dragging
  - [ ] Bright Ores (in use with freecam is xray lol)
