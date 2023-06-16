@@ -18,6 +18,9 @@
       "fxmod.mod.beeesp.name": "BeeESP",
       "fxmod.mod.beeesp.tooltip": "Highlights beehives within a 30 block radius",
 
+      "fxmod.mod.nopotionparticles.name": "No Potion Particles",
+      "fxmod.mod.nopotionparticles.tooltip": "Hides the stupid potion particles from your camera",
+
     ">>>######### TOOLS Category": "",
       "fxmod.mod.toolwarning.name": "Tool Warning",
       "fxmod.mod.toolwarning.tooltip": "When your tool gets close to breaking, a message will appear.",

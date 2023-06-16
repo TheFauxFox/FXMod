@@ -30,7 +30,7 @@ public class FXOptions
 	private final Map<String, SimpleOption<?>> features;
 
 	// all the FEATURES
-	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning, beeESP;
+	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning, beeESP, noPotionParticles;
 
 	public FXOptions()
 	{
@@ -64,6 +64,13 @@ public class FXOptions
 				false
 		);
 		features.put("beeesp", beeESP);
+
+		noPotionParticles = SimpleOption.ofBoolean(
+				"fxmod.mod.nopotionparticles.name",
+				tooltip("fxmod.mod.nopotionparticles.tooltip", true),
+				true
+		);
+		features.put("nopotionparticles", noPotionParticles);
 
 		init();
 	}

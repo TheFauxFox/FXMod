@@ -11,7 +11,7 @@
  - [ ] Step
  - [ ] No-Fog
  - [ ] Horse Stats
- - [ ] No Potion Particle
+ - [x] No Potion Particle
  - [ ] QuickStack (terraria)
  - [ ] Refill Inv (terraria)
  - [ ] Refill hand

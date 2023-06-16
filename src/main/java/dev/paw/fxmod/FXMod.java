@@ -1,5 +1,6 @@
 package dev.paw.fxmod;
 
+import dev.paw.fxmod.mixin.LivingEntityMixin;
 import dev.paw.fxmod.settings.FXOptions;
 import dev.paw.fxmod.settings.FXSettingsScreen;
 import dev.paw.fxmod.utils.*;
@@ -12,6 +13,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
