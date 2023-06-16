@@ -3,7 +3,9 @@
 - [x] ToolBreak Warning
 - [x] Bee ESP (For hives)
 - [x] No Potion Particle
-- [ ] Freecam
+- [x] Freecam
+- [ ] Freecam scroll speed
+- [ ] Scrollable Zoom
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
@@ -17,3 +19,19 @@
 - [ ] Refill hand
 - [ ] No break swap stop (dont cancel block breaking on tool swap)
 - [ ] Fast Trade
+- [ ] GUI Blur
+- [ ] Disable Damage Tilt
+- [ ] Toggleable ping display
+- [ ] Tooltip fix
+- [ ] Clear water
+- [ ] FPS display (more simplistic than sodium itself)
+- [ ] Don't clear chat history
+- [ ] Dark loading screen
+- [ ] Light level overlay
+- [ ] Bee Info
+- [ ] Technopig (RIP)
+- [ ] Low Fire
+- [ ] Hide tutorial BS
+- [ ] Screen title popup fixer
+- [ ] Potion timer
+- [ ] 

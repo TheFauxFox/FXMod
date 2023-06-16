@@ -3,6 +3,8 @@ package dev.paw.fxmod.mixin;
 import dev.paw.fxmod.FXMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -42,6 +44,10 @@ abstract class MinecraftClientMixin {
 				}
 			}
 		}
+
+		if(FXMod.OPTIONS.freecam.getValue()) {
+			info.setReturnValue(false);
+		}
 	}
 
 	@Inject(method = "handleBlockBreaking", at = @At("HEAD"), cancellable = true)
@@ -66,6 +72,10 @@ abstract class MinecraftClientMixin {
 					}
 				}
 			}
+		}
+
+		if(FXMod.OPTIONS.freecam.getValue()) {
+			info.cancel();
 		}
 	}
 
@@ -120,6 +130,18 @@ abstract class MinecraftClientMixin {
 					}
 				}
 			}
+		}
+
+		if(FXMod.OPTIONS.freecam.getValue()) {
+			info.cancel();
+		}
+	}
+
+	@Inject(method = "hasOutline", at = @At("HEAD"), cancellable = true)
+	private void onHasOutline(Entity entity, CallbackInfoReturnable<Boolean> info)
+	{
+		if(FXMod.OPTIONS.freecam.getValue() && entity.equals(FXMod.MC.player) && FXMod.OPTIONS.freecamOutline.getValue()) {
+			info.setReturnValue(true);
 		}
 	}
 }

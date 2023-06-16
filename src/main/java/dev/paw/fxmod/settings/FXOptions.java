@@ -30,7 +30,7 @@ public class FXOptions
 	private final Map<String, SimpleOption<?>> features;
 
 	// all the FEATURES
-	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning, beeESP, noPotionParticles;
+	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning, beeESP, noPotionParticles, freecam, freecamOutline;
 
 	public FXOptions()
 	{
@@ -71,6 +71,20 @@ public class FXOptions
 				true
 		);
 		features.put("nopotionparticles", noPotionParticles);
+
+		freecam = SimpleOption.ofBoolean(
+				"fxmod.mod.freecam.name",
+				tooltip("fxmod.mod.freecam.tooltip", false),
+				false
+		);
+		// features.put("freecam", freecam); DO NOT UNCOMMENT, THIS WILL FUCK THINGS UP
+
+		freecamOutline = SimpleOption.ofBoolean(
+				"fxmod.mod.freecamoutline.name",
+				tooltip("fxmod.mod.freecamoutline.tooltip", true),
+				true
+		);
+		features.put("freecamoutline", freecamOutline);
 
 		init();
 	}

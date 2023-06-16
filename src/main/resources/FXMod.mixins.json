@@ -8,12 +8,17 @@
     "LivingEntityMixin"
   ],
   "client": [
+    "CameraMixin",
     "ClickableWidgetMixin",
+    "ClientPlayerEntityMixin",
+    "GameRendererMixin",
     "InGameHudMixin",
     "KeyBindingMixin",
     "LightmapTextureManagerMixin",
     "MinecraftClientMixin",
-    "OptionMixin"
+    "OptionMixin",
+    "PlayerEntityRendererMixin",
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

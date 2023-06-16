@@ -49,6 +49,7 @@ public class FXMod implements ClientModInitializer {
         KeyBinding openSettingsMenuKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.options.keybind.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         KeyBinding fullbrightKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.fullbright.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         KeyBinding beeespKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.beeesp.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
+        KeyBinding freecamKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.freecam.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         toolBreakingOverrideKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.notoolbreak.keybind", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_ALT, "FXMod"));
 
         ClientTickEvents.END_WORLD_TICK.register(client ->
@@ -59,6 +60,7 @@ public class FXMod implements ClientModInitializer {
 
             handleFeatureKeybindPress(fullbrightKeybind, FXMod.OPTIONS.fullbright, "fxmod.mod.fullbright.name");
             handleFeatureKeybindPress(beeespKeybind, FXMod.OPTIONS.beeESP, "fxmod.mod.beeesp.name");
+            handleFeatureKeybindPress(freecamKeybind, FXMod.OPTIONS.freecam, "fxmod.mod.freecam.name");
         });
     }
 
@@ -112,6 +114,13 @@ public class FXMod implements ClientModInitializer {
 
                 FXMod.VARS.mainHandToolItemStack = mainHandItem;
                 FXMod.VARS.offHandToolItemStack = offHandItem;
+            }
+        });
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (FXMod.MC.player == null && FXMod.OPTIONS.freecam.getValue()) {
+                // Disable freecam if we dont have a player (leaving world n stuff)
+                FXMod.OPTIONS.freecam.setValue(false);
             }
         });
 
