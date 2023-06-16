@@ -1,19 +1,19 @@
 # TODO
- - [x] Fullbright
- - [ ] Freecam
- - [ ] Item ESP
- - [x] ToolBreak Warning
- - [x] Bee ESP (For hives)
- - [ ] Item Scrolling
- - [ ] Click dragging
- - [ ] Bright Ores (in use with freecam is xray lol)
- - [ ] Spawner ESP
- - [ ] Step
- - [ ] No-Fog
- - [ ] Horse Stats
- - [x] No Potion Particle
- - [ ] QuickStack (terraria)
- - [ ] Refill Inv (terraria)
- - [ ] Refill hand
- - [ ] No break swap stop (dont cancel block breaking on tool swap)
- - [ ] Fast Trade
+- [x] Fullbright
+- [x] ToolBreak Warning
+- [x] Bee ESP (For hives)
+- [x] No Potion Particle
+- [ ] Freecam
+- [ ] Item ESP
+- [ ] Item Scrolling
+- [ ] Click dragging
+- [ ] Bright Ores (in use with freecam is xray lol)
+- [ ] Spawner ESP
+- [ ] Step
+- [ ] No-Fog
+- [ ] Horse Stats
+- [ ] QuickStack (terraria)
+- [ ] Refill Inv (terraria)
+- [ ] Refill hand
+- [ ] No break swap stop (dont cancel block breaking on tool swap)
+- [ ] Fast Trade
