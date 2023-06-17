@@ -60,6 +60,9 @@
 
       "fxmod.mod.betterzoom.name": "Zoom",
 
+      "fxmod.mod.beeinfo.name": "Bee info",
+      "fxmod.mod.beeinfo.tooltip": "Shows honey level and bee count in tooltip",
+
   "######### Text display stuff": "",
     "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
 
@@ -67,5 +70,9 @@
     "fxmod.mod.onDisable": "%s has been §cdisabled§r",
 
     "fxmod.mod.toolwarning.popup.mainhand": "Main hand tool has %d durability left",
-    "fxmod.mod.toolwarning.popup.offhand": "Off-hand tool has %d durability left"
+    "fxmod.mod.toolwarning.popup.offhand": "Off-hand tool has %d durability left",
+
+    "fxmod.mod.beeinfo.tooltip.bees": "§7Bees: %d",
+    "fxmod.mod.beeinfo.tooltip.honey": "§7Honey: %s",
+    "fxmod.mod.beeinfo.tooltip.name": "§7- %s"
 }

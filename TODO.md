@@ -13,6 +13,7 @@
 - [x] No-Fog
 - [x] Precice block placement
 - [x] Low Fire
+- [x] Bee Info
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
@@ -31,7 +32,6 @@
 - [ ] Don't clear chat history
 - [ ] Dark loading screen
 - [ ] Light level overlay
-- [ ] Bee Info
 - [ ] Technopig (RIP)
 - [ ] Hide tutorial BS
 - [ ] Screen title popup fixer

@@ -39,7 +39,7 @@ public class FXSettingsScreen extends Screen
 		this.list.addOptionEntry(FXMod.OPTIONS.preciseBlockPlace);
 		this.list.addCategoryEntry("fxmod.options.category.misc");
 		this.list.addOptionEntry(FXMod.OPTIONS.freecam, FXMod.OPTIONS.freecamOutline);
-		this.list.addOptionEntry(FXMod.OPTIONS.step);
+		this.list.addOptionEntry(FXMod.OPTIONS.step, FXMod.OPTIONS.beeInfo);
 		this.addSelectableChild(this.list);
 		
 		// DEFAULTS button at the top left corner

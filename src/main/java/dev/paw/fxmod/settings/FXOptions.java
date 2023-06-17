@@ -44,7 +44,8 @@ public class FXOptions
 			spawnerESPTags,
 			noFog,
 			preciseBlockPlace,
-			lowFire
+			lowFire,
+			beeInfo
 	;
 
 	public FXOptions()
@@ -149,6 +150,13 @@ public class FXOptions
 				true
 		);
 		features.put("preciseblockplacing", lowFire);
+
+		beeInfo = SimpleOption.ofBoolean(
+				"fxmod.mod.beeinfo.name",
+				tooltip("fxmod.mod.beeinfo.tooltip", true),
+				true
+		);
+		features.put("preciseblockplacing", beeInfo);
 
 		init();
 	}

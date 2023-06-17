@@ -8,16 +8,24 @@ import io.github.ennuil.libzoomer.api.modifiers.ZoomDivisorMouseModifier;
 import io.github.ennuil.libzoomer.api.transitions.SmoothTransitionMode;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.entity.BeehiveBlockEntity;
 import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.SimpleOption;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -204,6 +212,46 @@ public class FXMod implements ClientModInitializer {
                 }
             })
         );
+
+        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+            try {
+                if (!stack.isEmpty()) {
+                    NbtCompound tag = stack.getNbt();
+                    if (tag == null) return;
+                    NbtCompound beTag = tag.getCompound("BlockEntityTag");
+                    if (beTag == null || !beTag.contains("Bees")) return;
+                    NbtCompound bsTag = tag.getCompound("BlockStateTag");
+                    if (bsTag == null || !bsTag.contains("honey_level")) return;
+
+                    int honeyLevel = bsTag.getInt("honey_level");
+                    String honeyLevelStr = bsTag.getString("honey_level");  // wtf this is a string ???
+                    if (honeyLevelStr != null && !honeyLevelStr.isEmpty()) {
+                        try {
+                            honeyLevel = Integer.parseInt(honeyLevelStr);
+                        } catch (NumberFormatException ignored) {
+                        }
+                    }
+                    NbtList bees = beTag.getList("Bees", 10);
+                    int beeCount = bees.size();
+
+                    // Insert our lines in reverse order and always at the beginning of the list,
+                    // this way they will appear before the advanced tooltips if enabled.
+                    for (int i = 0; i < beeCount; i++)
+                    {
+                        tag = bees.getCompound(i).getCompound("EntityData");
+                        if (tag != null && tag.contains("CustomName", 8))
+                        {
+                            String beeName = tag.getString("CustomName");
+                            lines.add(Math.min(1, lines.size()), Text.literal(I18n.translate("fxmod.mod.beeinfo.tooltip.name", Text.Serializer.fromJson(beeName).getString())));
+                        }
+                    }
+
+                    lines.add(Math.min(1, lines.size()), Text.literal(I18n.translate("fxmod.mod.beeinfo.tooltip.bees", beeCount)));
+                    lines.add(Math.min(1, lines.size()), Text.literal(I18n.translate("fxmod.mod.beeinfo.tooltip.honey", honeyLevel)));
+                }
+            } catch (Exception ignored) {
+            }
+        });
 
     }
 }
