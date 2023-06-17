@@ -31,7 +31,7 @@ public class WorldUtils {
         for (int i = chunkX - chunks; i <= chunkX + chunks; i++) {
             for (int j = chunkZ - chunks; j <= chunkZ + chunks; j++) {
 
-                Chunk chunk = world.getChunk(i, j, ChunkStatus.SURFACE, false);
+                Chunk chunk = world.getChunk(i, j, ChunkStatus.FULL, false);
                 if (chunk != null) {
                     positions.addAll(chunk.getBlockEntityPositions().stream().filter((blockPos -> {
                         if (blockPos.getSquaredDistance(player.getPos()) <= Math.pow(chunks * 16, 2)) {

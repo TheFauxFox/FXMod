@@ -1,9 +1,13 @@
 package dev.paw.fxmod.utils;
 
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FXModVars
 {
@@ -39,6 +43,8 @@ public class FXModVars
 
 	public boolean wasZooming;
 
+	public List<ArmorStandEntity> spawnerESPTags;
+
 	public FXModVars()
 	{
 		this.waitForTrade = false;
@@ -72,6 +78,8 @@ public class FXModVars
 		this.toolHand = Hand.MAIN_HAND;
 
 		this.wasZooming = false;
+
+		this.spawnerESPTags = new ArrayList<>();
 	}
 
 	public int getToolWarningTextTicksLeft()

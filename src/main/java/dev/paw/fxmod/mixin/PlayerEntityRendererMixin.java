@@ -21,6 +21,10 @@ abstract class PlayerEntityRendererMixin<T extends Entity> extends EntityRendere
             return true;
         }
 
+        if(FXMod.OPTIONS.spawnerESP.getValue() && entity.getCustomName() != null && entity.getCustomName().getString().endsWith(" Spawner") && !FXMod.MC.options.hudHidden) {
+            return true;
+        }
+
         return super.hasLabel(entity);
     }
 }

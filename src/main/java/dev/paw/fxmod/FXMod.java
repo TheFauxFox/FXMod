@@ -1,5 +1,6 @@
 package dev.paw.fxmod;
 
+import dev.paw.fxmod.mixin.MobSpawnerLogicAccessor;
 import dev.paw.fxmod.settings.FXOptions;
 import dev.paw.fxmod.settings.FXSettingsScreen;
 import dev.paw.fxmod.utils.*;
@@ -10,19 +11,29 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.minecraft.block.Block;
 import net.minecraft.block.entity.BeehiveBlockEntity;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.MobSpawnerBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
 import net.minecraft.util.math.*;
+import net.minecraft.world.MobSpawnerLogic;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FXMod implements ClientModInitializer {
 
@@ -162,15 +173,47 @@ public class FXMod implements ClientModInitializer {
 
         WorldRenderEvents.AFTER_ENTITIES.register((context) ->
             OptifineHooks.doOptifineAwareRender(context, (context1, simple) -> {
-                if (!OPTIONS.beeESP.getValue()) return;
 
-                Render3d.enable(context);
+                if (VARS.spawnerESPTags.size() > 0) {
+                    for (ArmorStandEntity ent: VARS.spawnerESPTags) {
+                        ent.discard();
+                    }
+                }
+                VARS.spawnerESPTags.clear();
 
-                WorldUtils.getBlocksInRadius(2, BeehiveBlockEntity.class).forEach((pos) ->
-                    Render3d.drawBox(context, pos, new Color(255,255,0))
-                );
+                if (OPTIONS.beeESP.getValue()) {
+                    Render3d.enable(context);
 
-                Render3d.disable(context);
+                    WorldUtils.getBlocksInRadius(2, BeehiveBlockEntity.class).forEach((pos) ->
+                        Render3d.drawBox(context, pos, new Color(255,255,0))
+                    );
+
+                    Render3d.disable(context);
+                }
+                if (OPTIONS.spawnerESP.getValue()) {
+                    List<Pair<BlockPos, String>> positions = new ArrayList<>();
+                    WorldUtils.getBlocksInRadius(8, MobSpawnerBlockEntity.class).forEach((pos) -> {
+                        if (MC.world == null) return;
+                        BlockEntity blockEntity = MC.world.getBlockEntity(pos);
+                        if (blockEntity instanceof MobSpawnerBlockEntity mobSpawner) {
+                            MobSpawnerLogic spawnerLogic = mobSpawner.getLogic();
+                            Entity spawningMob = ((MobSpawnerLogicAccessor)spawnerLogic).getSpawningMob();
+                            if (spawningMob != null) {
+                                String mobName = spawningMob.getName().getString();
+                                Render3d.enable(context);
+                                Render3d.drawBox(context, pos, new Color(25, 25, 25));
+                                Render3d.disable(context);
+                                ArmorStandEntity tagStand = new ArmorStandEntity(MC.world, pos.getX() + 0.5, pos.getY() - 1, pos.getZ() + 0.5);
+                                tagStand.setInvisible(true);
+                                tagStand.setCustomNameVisible(true);
+                                tagStand.setCustomName(Text.of(mobName + " Spawner"));
+                                MC.world.addEntity(Block.getRawIdFromState(MC.world.getBlockState(pos)), tagStand);
+                                VARS.spawnerESPTags.add(tagStand);
+                            }
+                        }
+                    });
+
+                }
             })
         );
 
