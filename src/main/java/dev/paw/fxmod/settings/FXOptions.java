@@ -41,7 +41,8 @@ public class FXOptions
 		fpsdisplay,
 		step,
 		spawnerESP,
-		noFog
+		noFog,
+		preciseBlockPlace
 	;
 
 	public FXOptions()
@@ -124,6 +125,14 @@ public class FXOptions
 				tooltip("fxmod.mod.nofog.tooltip", true),
 				true
 		);
+		features.put("nofog", noFog);
+
+		preciseBlockPlace = SimpleOption.ofBoolean(
+				"fxmod.mod.preciseBlockPlace.name",
+				tooltip("fxmod.mod.preciseBlockPlace.tooltip", true),
+				true
+		);
+		features.put("preciseblockplacing", preciseBlockPlace);
 
 		init();
 	}

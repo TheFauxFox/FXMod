@@ -39,6 +39,9 @@
       "fxmod.mod.notoolbreak.tooltip": "Stops you from using a tool once it hits 2 durability (overriden by keybind)",
       "fxmod.mod.notoolbreak.keybind": "Tool break override",
 
+      "fxmod.mod.preciseBlockPlace.name": "Precise Block Placment",
+      "fxmod.mod.preciseBlockPlace.tooltip": "Makes block placing more accurate at high speeds",
+
     ">>>######### MISC Category": "",
       "fxmod.mod.freecam.name": "Freecam",
       "fxmod.mod.freecam.tooltip": "Allows you to fly around like you're in spectator mode\nUse the scroll wheel to adjust the speed",

@@ -42,13 +42,14 @@ public class FXMod implements ClientModInitializer {
     public static MinecraftClient MC;
     public static FXOptions OPTIONS;
     public static final FXModVars VARS = new FXModVars();
+    public static final PreciseBlockPlacing precisePlacing = new PreciseBlockPlacing();
 
     public KeyBinding toolBreakingOverrideKeybind, zoomKeyBind;
 
     public static final ZoomInstance okZoom = new ZoomInstance(
-            new Identifier("fxmod:zoom"),
-            4.0F, new SmoothTransitionMode(),
-            new ZoomDivisorMouseModifier(), null
+        new Identifier("fxmod:zoom"),
+        4.0F, new SmoothTransitionMode(),
+        new ZoomDivisorMouseModifier(), null
     );
 
     @Override
@@ -116,12 +117,15 @@ public class FXMod implements ClientModInitializer {
     {
         ClientTickEvents.END_WORLD_TICK.register(clientWorld ->
         {
+            precisePlacing.clientTick(MC);
+
             if (okZoom.setZoom(zoomKeyBind.isPressed())) {
                 VARS.wasZooming = true;
             } else if (!zoomKeyBind.isPressed() && VARS.wasZooming) {
                 okZoom.resetZoomDivisor();
                 ZoomUtils.zoomStep = 0;
             }
+
             if(FXMod.OPTIONS.toolWarning.getValue() && MC.player != null) {
                 ItemStack mainHandItem = FXMod.MC.player.getStackInHand(Hand.MAIN_HAND);
                 ItemStack offHandItem = FXMod.MC.player.getStackInHand(Hand.OFF_HAND);

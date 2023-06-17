@@ -8,4 +8,10 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface MinecraftClientAccessor {
     @Accessor("currentFps")
     int getCurrentFPS();
+
+    @Accessor("itemUseCooldown")
+    int getItemUseCooldown();
+
+    @Accessor("itemUseCooldown")
+    void setItemUseCooldown(int cooldown);
 }

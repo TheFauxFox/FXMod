@@ -11,6 +11,7 @@
 - [x] Potion timer
 - [x] Spawner ESP (It works I guess lol)
 - [x] No-Fog
+- [x] Precice block placement
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging

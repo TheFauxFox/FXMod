@@ -36,6 +36,7 @@ public class FXSettingsScreen extends Screen
 		this.list.addOptionEntry(FXMod.OPTIONS.noFog);
 		this.list.addCategoryEntry("fxmod.options.category.tools");
 		this.list.addOptionEntry(FXMod.OPTIONS.toolWarning, FXMod.OPTIONS.noToolBreaking);
+		this.list.addOptionEntry(FXMod.OPTIONS.preciseBlockPlace);
 		this.list.addCategoryEntry("fxmod.options.category.misc");
 		this.list.addOptionEntry(FXMod.OPTIONS.freecam, FXMod.OPTIONS.freecamOutline);
 		this.list.addOptionEntry(FXMod.OPTIONS.step);
