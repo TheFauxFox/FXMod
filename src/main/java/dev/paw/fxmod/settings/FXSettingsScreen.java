@@ -45,6 +45,7 @@ public class FXSettingsScreen extends Screen
 		// DEFAULTS button at the top left corner
 		this.addDrawableChild(
 			ButtonWidget.builder(Text.translatable("fxmod.options.mod_default.button"), (buttonWidget) -> {
+				if (this.client == null) return;
 				FXMod.OPTIONS.reset();
 				this.client.setScreen(getNewScreen(parent));
 			})
@@ -56,6 +57,7 @@ public class FXSettingsScreen extends Screen
 		// DONE button at the bottom
 		this.addDrawableChild(
 			ButtonWidget.builder(ScreenTexts.DONE, (buttonWidget) -> {
+				if (this.client == null) return;
 				FXMod.OPTIONS.write();
 				this.client.setScreen(parent);
 			})
@@ -83,6 +85,7 @@ public class FXSettingsScreen extends Screen
 	@Override
 	public void close()
 	{
+		if (this.client == null) return;
 		this.client.setScreen(parent);
 	}
 }
