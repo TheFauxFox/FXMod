@@ -20,6 +20,7 @@ public class MouseMixin {
                 FXMod.VARS.freecamSpeedBoost += eventDeltaWheel > 0.0 ? 0.05D : -0.05D;
                 FXMod.VARS.freecamSpeedBoost = Math.max(0,FXMod.VARS.freecamSpeedBoost);
                 FXMod.VARS.freecamSpeedBoost = Math.min(FXMod.VARS.freecamSpeedBoost, 20);
+                ci.cancel();
             }
         }
     }

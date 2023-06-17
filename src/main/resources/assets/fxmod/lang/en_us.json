@@ -35,7 +35,7 @@
 
     ">>>######### MISC Category": "",
       "fxmod.mod.freecam.name": "Freecam",
-      "fxmod.mod.freecam.tooltip": "Allows you to fly around like you're in spectator mode",
+      "fxmod.mod.freecam.tooltip": "Allows you to fly around like you're in spectator mode\nUse the scroll wheel to adjust the speed",
 
       "fxmod.mod.freecamoutline.name": "Freecam Outline",
       "fxmod.mod.freecamoutline.tooltip": "Highlights your player while in freecam",
