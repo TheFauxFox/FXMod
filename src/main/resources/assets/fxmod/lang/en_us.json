@@ -28,6 +28,9 @@
       "fxmod.mod.spawneresp.name": "Spawner ESP",
       "fxmod.mod.spawneresp.tooltip": "Shows the location of spawners, and adds a nametag to show the type of spawner",
 
+      "fxmod.mod.nofog.name": "No Fog",
+      "fxmod.mod.nofog.tooltip": "Disables rendering of just about all fogs",
+
     ">>>######### TOOLS Category": "",
       "fxmod.mod.toolwarning.name": "Tool Warning",
       "fxmod.mod.toolwarning.tooltip": "When your tool gets close to breaking, a message will appear.",

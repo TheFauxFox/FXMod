@@ -9,6 +9,7 @@
     "MobSpawnerLogicAccessor"
   ],
   "client": [
+    "BackgroundRendererMixin",
     "CameraMixin",
     "ClickableWidgetMixin",
     "ClientPlayerEntityMixin",

@@ -10,11 +10,11 @@
 - [x] Scrollable Zoom
 - [x] Potion timer
 - [x] Spawner ESP (It works I guess lol)
+- [x] No-Fog
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
 - [ ] Bright Ores (in use with freecam is xray lol)
-- [ ] No-Fog
 - [ ] Horse Stats
 - [ ] QuickStack (terraria)
 - [ ] Refill Inv (terraria)
