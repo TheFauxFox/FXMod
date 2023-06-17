@@ -50,6 +50,7 @@ public class FXMod implements ClientModInitializer {
         KeyBinding fullbrightKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.fullbright.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         KeyBinding beeespKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.beeesp.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         KeyBinding freecamKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.freecam.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
+        KeyBinding stepKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.step.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         toolBreakingOverrideKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.notoolbreak.keybind", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_ALT, "FXMod"));
 
         ClientTickEvents.END_WORLD_TICK.register(client ->
@@ -61,6 +62,7 @@ public class FXMod implements ClientModInitializer {
             handleFeatureKeybindPress(fullbrightKeybind, FXMod.OPTIONS.fullbright, "fxmod.mod.fullbright.name");
             handleFeatureKeybindPress(beeespKeybind, FXMod.OPTIONS.beeESP, "fxmod.mod.beeesp.name");
             handleFeatureKeybindPress(freecamKeybind, FXMod.OPTIONS.freecam, "fxmod.mod.freecam.name");
+            handleFeatureKeybindPress(stepKeybind, FXMod.OPTIONS.step, "fxmod.mod.step.name");
         });
     }
 
@@ -114,6 +116,18 @@ public class FXMod implements ClientModInitializer {
 
                 FXMod.VARS.mainHandToolItemStack = mainHandItem;
                 FXMod.VARS.offHandToolItemStack = offHandItem;
+            }
+
+            if (FXMod.OPTIONS.step.getValue() && MC.player != null) {
+                if(MC.player.isSneaking()) {
+                    MC.player.setStepHeight(0.6f);
+                } else if (MC.player.getStepHeight() < 1.0f) {
+                    MC.player.setStepHeight(1.25f);
+                }
+            } else {
+                if (MC.player != null && MC.player.getStepHeight() > 0.6f) {
+                    MC.player.setStepHeight(0.6f);
+                }
             }
         });
 

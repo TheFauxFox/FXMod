@@ -4,6 +4,8 @@
 - [x] Bee ESP (For hives)
 - [x] No Potion Particle
 - [x] Freecam
+- [x] FPS display (more simplistic than sodium itself)
+- [x] Step
 - [ ] Freecam scroll speed
 - [ ] Scrollable Zoom
 - [ ] Item ESP
@@ -11,7 +13,6 @@
 - [ ] Click dragging
 - [ ] Bright Ores (in use with freecam is xray lol)
 - [ ] Spawner ESP
-- [ ] Step
 - [ ] No-Fog
 - [ ] Horse Stats
 - [ ] QuickStack (terraria)
@@ -24,7 +25,6 @@
 - [ ] Toggleable ping display
 - [ ] Tooltip fix
 - [ ] Clear water
-- [ ] FPS display (more simplistic than sodium itself)
 - [ ] Don't clear chat history
 - [ ] Dark loading screen
 - [ ] Light level overlay
@@ -34,4 +34,3 @@
 - [ ] Hide tutorial BS
 - [ ] Screen title popup fixer
 - [ ] Potion timer
-- [ ] 

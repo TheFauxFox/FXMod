@@ -36,6 +36,7 @@ public class FXSettingsScreen extends Screen
 		this.list.addOptionEntry(FXMod.OPTIONS.toolWarning, FXMod.OPTIONS.noToolBreaking);
 		this.list.addCategoryEntry("fxmod.options.category.misc");
 		this.list.addOptionEntry(FXMod.OPTIONS.freecam, FXMod.OPTIONS.freecamOutline);
+		this.list.addOptionEntry(FXMod.OPTIONS.step);
 		this.addSelectableChild(this.list);
 		
 		// DEFAULTS button at the top left corner

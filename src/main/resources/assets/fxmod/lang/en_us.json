@@ -40,6 +40,9 @@
       "fxmod.mod.freecamoutline.name": "Freecam Outline",
       "fxmod.mod.freecamoutline.tooltip": "Highlights your player while in freecam",
 
+      "fxmod.mod.step.name": "Step",
+      "fxmod.mod.step.tooltip": "Allows you to step up full blocks without jumping.\n§cWARNING: Won't work on most servers, could get you banned",
+
   "######### Text display stuff": "",
     "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
 
