@@ -12,6 +12,7 @@
 - [x] Spawner ESP (It works I guess lol)
 - [x] No-Fog
 - [x] Precice block placement
+- [x] Low Fire
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
@@ -32,6 +33,5 @@
 - [ ] Light level overlay
 - [ ] Bee Info
 - [ ] Technopig (RIP)
-- [ ] Low Fire
 - [ ] Hide tutorial BS
 - [ ] Screen title popup fixer

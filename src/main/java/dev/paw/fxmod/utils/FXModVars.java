@@ -45,6 +45,8 @@ public class FXModVars
 
 	public List<ArmorStandEntity> spawnerESPTags;
 
+	public double fireOffset;
+
 	public FXModVars()
 	{
 		this.waitForTrade = false;
@@ -80,6 +82,8 @@ public class FXModVars
 		this.wasZooming = false;
 
 		this.spawnerESPTags = new ArrayList<>();
+
+		this.fireOffset = 0.3;
 	}
 
 	public int getToolWarningTextTicksLeft()

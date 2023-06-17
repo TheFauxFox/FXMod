@@ -42,7 +42,8 @@ public class FXOptions
 		step,
 		spawnerESP,
 		noFog,
-		preciseBlockPlace
+		preciseBlockPlace,
+		lowFire
 	;
 
 	public FXOptions()
@@ -128,11 +129,18 @@ public class FXOptions
 		features.put("nofog", noFog);
 
 		preciseBlockPlace = SimpleOption.ofBoolean(
-				"fxmod.mod.preciseBlockPlace.name",
-				tooltip("fxmod.mod.preciseBlockPlace.tooltip", true),
+				"fxmod.mod.preciseblockplace.name",
+				tooltip("fxmod.mod.preciseblockplace.tooltip", true),
 				true
 		);
 		features.put("preciseblockplacing", preciseBlockPlace);
+
+		lowFire = SimpleOption.ofBoolean(
+				"fxmod.mod.lowfire.name",
+				tooltip("fxmod.mod.lowfire.tooltip", true),
+				true
+		);
+		features.put("preciseblockplacing", lowFire);
 
 		init();
 	}

@@ -31,6 +31,9 @@
       "fxmod.mod.nofog.name": "No Fog",
       "fxmod.mod.nofog.tooltip": "Disables rendering of just about all fogs",
 
+      "fxmod.mod.lowfire.name": "Low Fire",
+      "fxmod.mod.lowfire.tooltip": "Lowers the fire overlay so it's not annoying",
+
     ">>>######### TOOLS Category": "",
       "fxmod.mod.toolwarning.name": "Tool Warning",
       "fxmod.mod.toolwarning.tooltip": "When your tool gets close to breaking, a message will appear.",
@@ -39,8 +42,8 @@
       "fxmod.mod.notoolbreak.tooltip": "Stops you from using a tool once it hits 2 durability (overriden by keybind)",
       "fxmod.mod.notoolbreak.keybind": "Tool break override",
 
-      "fxmod.mod.preciseBlockPlace.name": "Precise Block Placment",
-      "fxmod.mod.preciseBlockPlace.tooltip": "Makes block placing more accurate at high speeds",
+      "fxmod.mod.preciseblockplace.name": "Precise Block Placment",
+      "fxmod.mod.preciseblockplace.tooltip": "Makes block placing more accurate at high speeds",
 
     ">>>######### MISC Category": "",
       "fxmod.mod.freecam.name": "Freecam",

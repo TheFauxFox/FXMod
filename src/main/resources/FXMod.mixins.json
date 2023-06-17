@@ -15,6 +15,7 @@
     "ClientPlayerEntityMixin",
     "GameRendererMixin",
     "InGameHudMixin",
+    "InGameOverlayRendererMixin",
     "KeyBindingMixin",
     "LightmapTextureManagerMixin",
     "MinecraftClientAccessor",
