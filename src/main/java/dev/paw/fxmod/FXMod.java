@@ -207,12 +207,14 @@ public class FXMod implements ClientModInitializer {
                                 Render3d.enable(context);
                                 Render3d.drawBox(context, pos, new Color(25, 25, 25));
                                 Render3d.disable(context);
-                                ArmorStandEntity tagStand = new ArmorStandEntity(MC.world, pos.getX() + 0.5, pos.getY() - 1, pos.getZ() + 0.5);
-                                tagStand.setInvisible(true);
-                                tagStand.setCustomNameVisible(true);
-                                tagStand.setCustomName(Text.of(mobName + " Spawner"));
-                                MC.world.addEntity(Block.getRawIdFromState(MC.world.getBlockState(pos)), tagStand);
-                                VARS.spawnerESPTags.add(tagStand);
+                                if (OPTIONS.spawnerESPTags.getValue()) {
+                                    ArmorStandEntity tagStand = new ArmorStandEntity(MC.world, pos.getX() + 0.5, pos.getY() - 1, pos.getZ() + 0.5);
+                                    tagStand.setInvisible(true);
+                                    tagStand.setCustomNameVisible(true);
+                                    tagStand.setCustomName(Text.of(mobName + " Spawner"));
+                                    MC.world.addEntity(Block.getRawIdFromState(MC.world.getBlockState(pos)), tagStand);
+                                    VARS.spawnerESPTags.add(tagStand);
+                                }
                             }
                         }
                     });

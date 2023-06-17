@@ -31,19 +31,20 @@ public class FXOptions
 
 	// all the FEATURES
 	public final SimpleOption<Boolean>
-		fullbright,
-		noToolBreaking,
-		toolWarning,
-		beeESP,
-		noPotionParticles,
-		freecam,
-		freecamOutline,
-		fpsdisplay,
-		step,
-		spawnerESP,
-		noFog,
-		preciseBlockPlace,
-		lowFire
+			fullbright,
+			noToolBreaking,
+			toolWarning,
+			beeESP,
+			noPotionParticles,
+			freecam,
+			freecamOutline,
+			fpsdisplay,
+			step,
+			spawnerESP,
+			spawnerESPTags,
+			noFog,
+			preciseBlockPlace,
+			lowFire
 	;
 
 	public FXOptions()
@@ -120,6 +121,13 @@ public class FXOptions
 				false
 		);
 		features.put("spawneresp", spawnerESP);
+
+		spawnerESPTags = SimpleOption.ofBoolean(
+				"fxmod.mod.spawneresptags.name",
+				tooltip("fxmod.mod.spawneresptags.tooltip", true),
+				true
+		);
+		features.put("spawneresptags", spawnerESPTags);
 
 		noFog = SimpleOption.ofBoolean(
 				"fxmod.mod.nofog.name",

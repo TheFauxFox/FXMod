@@ -26,7 +26,10 @@
       "fxmod.mod.fpsdisplay.tooltip": "Shows your FPS in the upper left",
 
       "fxmod.mod.spawneresp.name": "Spawner ESP",
-      "fxmod.mod.spawneresp.tooltip": "Shows the location of spawners, and adds a nametag to show the type of spawner",
+      "fxmod.mod.spawneresp.tooltip": "Shows the location of spawners",
+
+      "fxmod.mod.spawneresptags.name": "Spawner Tags",
+      "fxmod.mod.spawneresptags.tooltip": "Adds a nametag to show the type of spawner",
 
       "fxmod.mod.nofog.name": "No Fog",
       "fxmod.mod.nofog.tooltip": "Disables rendering of just about all fogs",

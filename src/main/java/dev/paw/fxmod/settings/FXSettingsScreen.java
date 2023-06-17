@@ -32,7 +32,7 @@ public class FXSettingsScreen extends Screen
 		this.list.addCategoryEntry("fxmod.options.category.render");
 		this.list.addOptionEntry(FXMod.OPTIONS.fullbright, FXMod.OPTIONS.beeESP);
 		this.list.addOptionEntry(FXMod.OPTIONS.noPotionParticles, FXMod.OPTIONS.fpsdisplay);
-		this.list.addOptionEntry(FXMod.OPTIONS.spawnerESP);
+		this.list.addOptionEntry(FXMod.OPTIONS.spawnerESP, FXMod.OPTIONS.spawnerESPTags);
 		this.list.addOptionEntry(FXMod.OPTIONS.noFog, FXMod.OPTIONS.lowFire);
 		this.list.addCategoryEntry("fxmod.options.category.tools");
 		this.list.addOptionEntry(FXMod.OPTIONS.toolWarning, FXMod.OPTIONS.noToolBreaking);
