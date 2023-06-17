@@ -16,11 +16,14 @@
       "fxmod.mod.fullbright.name": "Fullbright",
       "fxmod.mod.fullbright.tooltip": "Removes the concept of darkness from your world.",
 
-      "fxmod.mod.beeesp.name": "BeeESP",
+      "fxmod.mod.beeesp.name": "Bee ESP",
       "fxmod.mod.beeesp.tooltip": "Highlights beehives within a 30 block radius",
 
       "fxmod.mod.nopotionparticles.name": "No Potion Particles",
       "fxmod.mod.nopotionparticles.tooltip": "Hides the stupid potion particles from your camera",
+
+      "fxmod.mod.fpsdisplay.name": "Show FPS",
+      "fxmod.mod.fpsdisplay.tooltip": "Shows your FPS in the upper left",
 
     ">>>######### TOOLS Category": "",
       "fxmod.mod.toolwarning.name": "Tool Warning",

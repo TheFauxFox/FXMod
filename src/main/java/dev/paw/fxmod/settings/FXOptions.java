@@ -30,7 +30,7 @@ public class FXOptions
 	private final Map<String, SimpleOption<?>> features;
 
 	// all the FEATURES
-	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning, beeESP, noPotionParticles, freecam, freecamOutline;
+	public final SimpleOption<Boolean> fullbright, noToolBreaking, toolWarning, beeESP, noPotionParticles, freecam, freecamOutline, fpsdisplay;
 
 	public FXOptions()
 	{
@@ -85,6 +85,13 @@ public class FXOptions
 				true
 		);
 		features.put("freecamoutline", freecamOutline);
+
+		fpsdisplay = SimpleOption.ofBoolean(
+				"fxmod.mod.fpsdisplay.name",
+				tooltip("fxmod.mod.fpsdisplay.tooltip", true),
+				true
+		);
+		features.put("fpsdisplay", fpsdisplay);
 
 		init();
 	}

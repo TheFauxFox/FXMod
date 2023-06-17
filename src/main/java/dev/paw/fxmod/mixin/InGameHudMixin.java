@@ -1,6 +1,7 @@
 package dev.paw.fxmod.mixin;
 
 import dev.paw.fxmod.FXMod;
+import dev.paw.fxmod.utils.Color;
 import dev.paw.fxmod.utils.OnScreenText;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -53,6 +54,17 @@ abstract class InGameHudMixin implements Drawable {
 			context.getMatrices().translate((this.client.getWindow().getScaledWidth() / 2.0d), (this.client.getWindow().getScaledHeight() / 2.0d), 0);
 			context.getMatrices().scale(1.5f, 1.5f, 1.0f);
 			OnScreenText.drawToolWarningText(context);
+			context.getMatrices().pop();
+		}
+
+		if (true) { // placeholder for option for FPS
+			int x = 1;
+			int y = 1;
+			context.getMatrices().push();
+			context.getMatrices().translate(x, y, 0);
+			context.getMatrices().scale(1, 1, 1);
+			context.getMatrices().translate(-x, -y, 0);
+			context.drawTextWithShadow(FXMod.MC.textRenderer, ((MinecraftClientAccessor) FXMod.MC).getCurrentFPS() + " FPS", x, y, Color.WHITE.getPacked());
 			context.getMatrices().pop();
 		}
 	}

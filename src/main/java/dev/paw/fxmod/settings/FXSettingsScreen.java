@@ -31,7 +31,7 @@ public class FXSettingsScreen extends Screen
 		this.list = new NewButtonListWidget(this.client, this.width, this.height, 32, this.height - 32, 25);
 		this.list.addCategoryEntry("fxmod.options.category.render");
 		this.list.addOptionEntry(FXMod.OPTIONS.fullbright, FXMod.OPTIONS.beeESP);
-		this.list.addOptionEntry(FXMod.OPTIONS.noPotionParticles);
+		this.list.addOptionEntry(FXMod.OPTIONS.noPotionParticles, FXMod.OPTIONS.fpsdisplay);
 		this.list.addCategoryEntry("fxmod.options.category.tools");
 		this.list.addOptionEntry(FXMod.OPTIONS.toolWarning, FXMod.OPTIONS.noToolBreaking);
 		this.list.addCategoryEntry("fxmod.options.category.misc");
