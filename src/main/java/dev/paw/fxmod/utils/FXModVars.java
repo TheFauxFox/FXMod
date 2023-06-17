@@ -43,7 +43,7 @@ public class FXModVars
 
 	public boolean wasZooming;
 
-	public List<ArmorStandEntity> spawnerESPTags;
+	public List<ArmorStandEntity> renderedFakeNametags;
 
 	public double fireOffset;
 
@@ -81,7 +81,7 @@ public class FXModVars
 
 		this.wasZooming = false;
 
-		this.spawnerESPTags = new ArrayList<>();
+		this.renderedFakeNametags = new ArrayList<>();
 
 		this.fireOffset = 0.3;
 	}

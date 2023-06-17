@@ -3,14 +3,14 @@ package dev.paw.fxmod.utils;
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.paw.fxmod.FXMod;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
+import net.minecraft.block.Block;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL11;
 
 public class Render3d {
@@ -62,21 +62,14 @@ public class Render3d {
         drawBox(context, new Box(pos), color);
     }
 
-    public static void drawTag(WorldRenderContext context, BlockPos pos, String text, Color color) {
-        MatrixStack matrices = context.matrixStack();
-        matrices.push();
-        matrices.translate(-context.camera().getPos().x, -context.camera().getPos().y, -context.camera().getPos().z);
-        matrices.translate(pos.getX() + 0.5, pos.getY() + 1.5, pos.getZ() + 0.5);
-        matrices.multiply(context.camera().getRotation());
-        matrices.scale(-0.025F, -0.025F, 0.025F);
-        Matrix4f matrix4f = matrices.peek().getPositionMatrix();
-        float backgroundOpacity = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
-        TextRenderer textRenderer = context.gameRenderer().getClient().textRenderer;
-        float x = (float)(-textRenderer.getWidth(text) / 2);
-        textRenderer.draw(text, x, 0, color.getPacked(), false, matrix4f, context.consumers(), TextRenderer.TextLayerType.SEE_THROUGH, (int)(backgroundOpacity * 255.0F) << 24, 15);
-        textRenderer.draw(text, x, 0, -1, false, matrix4f, context.consumers(), TextRenderer.TextLayerType.NORMAL, 0, 15);
-
-        matrices.pop();
+    public static void drawTag(BlockPos pos, String text) {
+        if (FXMod.MC.world == null) return;
+        ArmorStandEntity tagStand = new ArmorStandEntity(FXMod.MC.world, pos.getX() + 0.5, pos.getY() - 1, pos.getZ() + 0.5);
+        tagStand.setInvisible(true);
+        tagStand.setCustomNameVisible(true);
+        tagStand.setCustomName(Text.of(text));
+        FXMod.MC.world.addEntity(Block.getRawIdFromState(FXMod.MC.world.getBlockState(pos)), tagStand);
+        FXMod.VARS.renderedFakeNametags.add(tagStand);
     }
 
     public static void drawBox(WorldRenderContext context, Box bb, Color color) {
