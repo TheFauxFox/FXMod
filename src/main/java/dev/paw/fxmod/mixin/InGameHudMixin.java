@@ -3,6 +3,9 @@ package dev.paw.fxmod.mixin;
 import dev.paw.fxmod.FXMod;
 import dev.paw.fxmod.utils.Color;
 import dev.paw.fxmod.utils.OnScreenText;
+import io.github.ennuil.libzoomer.api.ZoomInstance;
+import io.github.ennuil.libzoomer.api.ZoomOverlay;
+import io.github.ennuil.libzoomer.api.ZoomRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Drawable;
@@ -12,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -57,7 +61,7 @@ abstract class InGameHudMixin implements Drawable {
 			context.getMatrices().pop();
 		}
 
-		if (true) { // placeholder for option for FPS
+		if (FXMod.OPTIONS.fpsdisplay.getValue()) { // placeholder for option for FPS
 			int x = 1;
 			int y = 1;
 			context.getMatrices().push();
@@ -73,11 +77,59 @@ abstract class InGameHudMixin implements Drawable {
 	private int hijackGetHeartRows(InGameHud igHud, int heartCount)
 	{
 		// super rare thing but the air bubbles would overlap mount health if shown (ex. popping out of water and straight onto a horse), so yeah this fixes that
-		if(this.getCameraPlayer() != null && this.getHeartCount(this.getRiddenEntity()) != 0 && FXMod.MC.interactionManager.hasStatusBars()) {
+		if(this.getCameraPlayer() != null && FXMod.MC.interactionManager != null && this.getHeartCount(this.getRiddenEntity()) != 0 && FXMod.MC.interactionManager.hasStatusBars()) {
 			return this.getHeartRows(heartCount) + 1;
 		}
 		else {
 			return this.getHeartRows(heartCount);
+		}
+	}
+
+	@Unique
+	private boolean shouldCancelOverlay = false;
+
+	@Inject(
+			method = "render(Lnet/minecraft/client/gui/DrawContext;F)V",
+			at = @At(
+					value = "INVOKE",
+					target = "net/minecraft/client/MinecraftClient.getLastFrameDuration()F"
+			)
+	)
+	public void injectZoomOverlay(DrawContext graphics, float tickDelta, CallbackInfo ci) {
+		this.shouldCancelOverlay = false;
+		for (ZoomInstance instance : ZoomRegistry.getZoomInstances()) {
+			ZoomOverlay overlay = instance.getZoomOverlay();
+			if (overlay != null) {
+				overlay.tickBeforeRender();
+				if (overlay.getActive()) {
+					this.shouldCancelOverlay = overlay.cancelOverlayRendering();
+					overlay.renderOverlay(graphics);
+				}
+			}
+		}
+	}
+
+	// Yes, there is a renderOverlay for being frozen...
+	@Inject(
+			method = {"renderSpyglassOverlay", "renderOverlay"},
+			at = @At("HEAD"),
+			cancellable = true
+	)
+	public void cancelOverlay(CallbackInfo ci) {
+		if (this.shouldCancelOverlay) ci.cancel();
+	}
+
+	// ...which is why we set cancelOverlayRender to false before that!
+	@Inject(
+			method = "render(Lnet/minecraft/client/gui/DrawContext;F)V",
+			at = @At(
+					value = "INVOKE",
+					target = "net/minecraft/client/network/ClientPlayerEntity.getFrozenTicks()I"
+			)
+	)
+	public void disableOverlayCancelling(DrawContext graphics, float tickDelta, CallbackInfo ci) {
+		if (this.shouldCancelOverlay) {
+			this.shouldCancelOverlay = false;
 		}
 	}
 }

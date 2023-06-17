@@ -17,9 +17,11 @@
     "LightmapTextureManagerMixin",
     "MinecraftClientAccessor",
     "MinecraftClientMixin",
+    "ModelPredicateProviderRegistryMixin",
     "MouseMixin",
     "OptionMixin",
     "PlayerEntityRendererMixin",
+    "PlayerHeldItemFeatureRendererMixin",
     "WorldRendererMixin"
   ],
   "injectors": {

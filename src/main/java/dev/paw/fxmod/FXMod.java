@@ -1,9 +1,11 @@
 package dev.paw.fxmod;
 
-import dev.paw.fxmod.mixin.LivingEntityMixin;
 import dev.paw.fxmod.settings.FXOptions;
 import dev.paw.fxmod.settings.FXSettingsScreen;
 import dev.paw.fxmod.utils.*;
+import io.github.ennuil.libzoomer.api.ZoomInstance;
+import io.github.ennuil.libzoomer.api.modifiers.ZoomDivisorMouseModifier;
+import io.github.ennuil.libzoomer.api.transitions.SmoothTransitionMode;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -13,10 +15,10 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.*;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
@@ -30,7 +32,13 @@ public class FXMod implements ClientModInitializer {
     public static FXOptions OPTIONS;
     public static final FXModVars VARS = new FXModVars();
 
-    private KeyBinding toolBreakingOverrideKeybind;
+    public KeyBinding toolBreakingOverrideKeybind, zoomKeyBind;
+
+    public static final ZoomInstance okZoom = new ZoomInstance(
+            new Identifier("fxmod:zoom"),
+            4.0F, new SmoothTransitionMode(),
+            new ZoomDivisorMouseModifier(), null
+    );
 
     @Override
     public void onInitializeClient() {
@@ -40,6 +48,8 @@ public class FXMod implements ClientModInitializer {
 
         registerKeybinds();
         registerCallbacks();
+
+        ZoomUtils.unbindConflictingKey(MC);
 
         LOGGER.info("Loaded");
     }
@@ -52,6 +62,7 @@ public class FXMod implements ClientModInitializer {
         KeyBinding freecamKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.freecam.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         KeyBinding stepKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.step.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         toolBreakingOverrideKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.notoolbreak.keybind", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_ALT, "FXMod"));
+        zoomKeyBind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.betterzoom.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "FXMod"));
 
         ClientTickEvents.END_WORLD_TICK.register(client ->
         {
@@ -84,11 +95,21 @@ public class FXMod implements ClientModInitializer {
         return !toolBreakingOverrideKeybind.isPressed();
     }
 
+    public boolean isZooming() {
+        return zoomKeyBind.isPressed();
+    }
+
     private void registerCallbacks()
     {
 
         ClientTickEvents.END_WORLD_TICK.register(clientWorld ->
         {
+            if (okZoom.setZoom(zoomKeyBind.isPressed())) {
+                VARS.wasZooming = true;
+            } else if (!zoomKeyBind.isPressed() && VARS.wasZooming) {
+                okZoom.resetZoomDivisor();
+                ZoomUtils.zoomStep = 0;
+            }
             if(FXMod.OPTIONS.toolWarning.getValue() && MC.player != null) {
                 ItemStack mainHandItem = FXMod.MC.player.getStackInHand(Hand.MAIN_HAND);
                 ItemStack offHandItem = FXMod.MC.player.getStackInHand(Hand.OFF_HAND);
@@ -138,19 +159,19 @@ public class FXMod implements ClientModInitializer {
             }
         });
 
-        WorldRenderEvents.AFTER_ENTITIES.register((context) -> {
+        WorldRenderEvents.AFTER_ENTITIES.register((context) ->
             OptifineHooks.doOptifineAwareRender(context, (context1, simple) -> {
                 if (!OPTIONS.beeESP.getValue()) return;
 
                 Render3d.enable(context);
 
-                WorldUtils.getBlocksInRadius(2, BeehiveBlockEntity.class).forEach((pos) -> {
-                    Render3d.drawBox(context, pos, new Color(255,255,0));
-                });
+                WorldUtils.getBlocksInRadius(2, BeehiveBlockEntity.class).forEach((pos) ->
+                    Render3d.drawBox(context, pos, new Color(255,255,0))
+                );
 
                 Render3d.disable(context);
-            });
-        });
+            })
+        );
 
     }
 }

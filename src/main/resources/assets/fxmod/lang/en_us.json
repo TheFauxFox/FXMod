@@ -43,6 +43,8 @@
       "fxmod.mod.step.name": "Step",
       "fxmod.mod.step.tooltip": "Allows you to step up full blocks without jumping.\n§cWARNING: Won't work on most servers, could get you banned",
 
+      "fxmod.mod.betterzoom.name": "Zoom",
+
   "######### Text display stuff": "",
     "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
 

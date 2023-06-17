@@ -3,11 +3,7 @@ package dev.paw.fxmod.utils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FXModVars
 {
@@ -41,7 +37,7 @@ public class FXModVars
 	public ItemStack offHandToolItemStack;
 	public Hand toolHand;
 
-	public List<BlockPos> beehives;
+	public boolean wasZooming;
 
 	public FXModVars()
 	{
@@ -75,7 +71,7 @@ public class FXModVars
 		this.offHandToolItemStack = ItemStack.EMPTY;
 		this.toolHand = Hand.MAIN_HAND;
 
-		this.beehives = new ArrayList<>();
+		this.wasZooming = false;
 	}
 
 	public int getToolWarningTextTicksLeft()
