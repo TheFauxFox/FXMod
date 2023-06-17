@@ -7,6 +7,7 @@ import io.github.ennuil.libzoomer.api.ZoomInstance;
 import io.github.ennuil.libzoomer.api.modifiers.ZoomDivisorMouseModifier;
 import io.github.ennuil.libzoomer.api.transitions.SmoothTransitionMode;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
@@ -48,8 +49,6 @@ public class FXMod implements ClientModInitializer {
 
         registerKeybinds();
         registerCallbacks();
-
-        ZoomUtils.unbindConflictingKey(MC);
 
         LOGGER.info("Loaded");
     }
@@ -99,9 +98,12 @@ public class FXMod implements ClientModInitializer {
         return zoomKeyBind.isPressed();
     }
 
+    public void onReady() {
+        ZoomUtils.unbindConflictingKey(MC);
+    }
+
     private void registerCallbacks()
     {
-
         ClientTickEvents.END_WORLD_TICK.register(clientWorld ->
         {
             if (okZoom.setZoom(zoomKeyBind.isPressed())) {

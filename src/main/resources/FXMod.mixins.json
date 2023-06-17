@@ -22,6 +22,7 @@
     "OptionMixin",
     "PlayerEntityRendererMixin",
     "PlayerHeldItemFeatureRendererMixin",
+    "TitleScreenMixin",
     "WorldRendererMixin"
   ],
   "injectors": {

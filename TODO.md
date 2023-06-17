@@ -8,6 +8,7 @@
 - [x] Step
 - [x] Freecam scroll speed
 - [x] Scrollable Zoom
+- [x] Potion timer
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
@@ -33,4 +34,3 @@
 - [ ] Low Fire
 - [ ] Hide tutorial BS
 - [ ] Screen title popup fixer
-- [ ] Potion timer
