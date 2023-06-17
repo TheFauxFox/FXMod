@@ -33,6 +33,8 @@ public class FXModVars
 	public float freecamSideSpeed;
 	public float freecamUpSpeed;
 
+	public float freecamSpeedBoost;
+
 	private int toolWarningTextTicksLeft;
 	public int toolDurability;
 	public ItemStack mainHandToolItemStack;
@@ -64,6 +66,8 @@ public class FXModVars
 		this.freecamForwardSpeed = 0.0f;
 		this.freecamSideSpeed = 0.0f;
 		this.freecamUpSpeed = 0.0f;
+
+		this.freecamSpeedBoost = 0.0f;
 		
 		this.toolWarningTextTicksLeft = 0;
 		this.toolDurability = 0;

@@ -59,6 +59,10 @@ abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
             double rotateZ = Math.cos(FXMod.VARS.freecamYaw * Math.PI / 180.0D);
             double speed = FXMod.MC.player.isSprinting() ? 1.2D : 0.55D;
 
+            speed += FXMod.VARS.freecamSpeedBoost;
+            speed = Math.max(0, speed);
+            speed = Math.min(speed, 10);
+
             FXMod.VARS.prevFreecamX = FXMod.VARS.freecamX;
             FXMod.VARS.prevFreecamY = FXMod.VARS.freecamY;
             FXMod.VARS.prevFreecamZ = FXMod.VARS.freecamZ;

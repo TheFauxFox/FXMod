@@ -75,6 +75,7 @@ abstract class CameraMixin
             FXMod.VARS.freecamForwardSpeed = 0.0f;
             FXMod.VARS.freecamUpSpeed = 0.0f;
             FXMod.VARS.freecamSideSpeed = 0.0f;
+            FXMod.VARS.freecamSpeedBoost = 0.0f;
         }
     }
 

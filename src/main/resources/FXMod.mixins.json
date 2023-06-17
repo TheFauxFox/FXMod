@@ -17,6 +17,7 @@
     "LightmapTextureManagerMixin",
     "MinecraftClientAccessor",
     "MinecraftClientMixin",
+    "MouseMixin",
     "OptionMixin",
     "PlayerEntityRendererMixin",
     "WorldRendererMixin"
