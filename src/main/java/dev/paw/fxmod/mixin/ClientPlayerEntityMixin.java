@@ -51,9 +51,9 @@ abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
             float up = (FXMod.MC.player.input.jumping ? 1.0f : 0.0f) - (FXMod.MC.player.input.sneaking ? 1.0f : 0.0f);
             float side = FXMod.MC.player.input.movementSideways;
 
-            FXMod.VARS.freecamForwardSpeed = forward != 0 ? FVT_updateMotion(FXMod.VARS.freecamForwardSpeed, forward) : FXMod.VARS.freecamForwardSpeed * 0.5f;
-            FXMod.VARS.freecamUpSpeed = up != 0 ?  FVT_updateMotion(FXMod.VARS.freecamUpSpeed, up) : FXMod.VARS.freecamUpSpeed * 0.5f;
-            FXMod.VARS.freecamSideSpeed = side != 0 ?  FVT_updateMotion(FXMod.VARS.freecamSideSpeed , side) : FXMod.VARS.freecamSideSpeed * 0.5f;
+            FXMod.VARS.freecamForwardSpeed = forward != 0 ? _updateMotion(FXMod.VARS.freecamForwardSpeed, forward) : FXMod.VARS.freecamForwardSpeed * 0.5f;
+            FXMod.VARS.freecamUpSpeed = up != 0 ?  _updateMotion(FXMod.VARS.freecamUpSpeed, up) : FXMod.VARS.freecamUpSpeed * 0.5f;
+            FXMod.VARS.freecamSideSpeed = side != 0 ?  _updateMotion(FXMod.VARS.freecamSideSpeed , side) : FXMod.VARS.freecamSideSpeed * 0.5f;
 
             double rotateX = Math.sin(FXMod.VARS.freecamYaw * Math.PI / 180.0D);
             double rotateZ = Math.cos(FXMod.VARS.freecamYaw * Math.PI / 180.0D);
@@ -69,7 +69,7 @@ abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
         }
     }
 
-    private float FVT_updateMotion(float motion, float direction)
+    private float _updateMotion(float motion, float direction)
     {
         return (direction + motion == 0) ? 0.0f : MathHelper.clamp(motion + ((direction < 0) ? -0.35f : 0.35f), -1f, 1f);
     }
