@@ -7,7 +7,7 @@
 - [x] FPS display (more simplistic than sodium itself)
 - [x] Step
 - [x] Freecam scroll speed
-- [ ] Scrollable Zoom
+- [x] Scrollable Zoom
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
