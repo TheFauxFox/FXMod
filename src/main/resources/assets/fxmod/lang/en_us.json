@@ -69,6 +69,9 @@
       "fxmod.mod.beeinfo.name": "Bee info",
       "fxmod.mod.beeinfo.tooltip": "Shows honey level and bee count in tooltip",
 
+      "fxmod.mod.clearchat.name": "Chat History",
+      "fxmod.mod.clearchat.tooltip": "Disables clearing chat history when you get DC'd from a server.\nF3+D will still clear chat",
+
   "######### Text display stuff": "",
     "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
 

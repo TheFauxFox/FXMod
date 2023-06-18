@@ -17,6 +17,7 @@
 - [x] Toggleable ping display
 - [x] Technopig (May his memory live on)
 - [x] Hide tutorial BS
+- [x] Don't clear chat history
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
@@ -29,6 +30,5 @@
 - [ ] Fast Trade
 - [ ] Disable Damage Tilt
 - [ ] Tooltip fix
-- [ ] Don't clear chat history
 - [ ] Dark loading screen
 - [ ] Light level overlay

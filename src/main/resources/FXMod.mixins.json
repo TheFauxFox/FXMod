@@ -11,6 +11,7 @@
   "client": [
     "BackgroundRendererMixin",
     "CameraMixin",
+    "ChatHudMixin",
     "ClickableWidgetMixin",
     "ClientPlayerEntityMixin",
     "GameRendererMixin",

@@ -47,7 +47,8 @@ public class FXOptions
 		lowFire,
 		beeInfo,
 		pingDisplay,
-		technoRender
+		technoRender,
+		dontClearChat
 	;
 
 	public FXOptions()
@@ -173,6 +174,13 @@ public class FXOptions
 				true
 		);
 		features.put("technoRender", technoRender);
+
+		dontClearChat = SimpleOption.ofBoolean(
+				"fxmod.mod.clearchat.name",
+				tooltip("fxmod.mod.clearchat.tooltip", true),
+				true
+		);
+		features.put("clearchat", dontClearChat);
 
 		init();
 	}

@@ -41,6 +41,7 @@ public class FXSettingsScreen extends Screen
 		this.list.addCategoryEntry("fxmod.options.category.misc");
 		this.list.addOptionEntry(FXMod.OPTIONS.freecam, FXMod.OPTIONS.freecamOutline);
 		this.list.addOptionEntry(FXMod.OPTIONS.step, FXMod.OPTIONS.beeInfo);
+		this.list.addOptionEntry(FXMod.OPTIONS.dontClearChat);
 		this.addSelectableChild(this.list);
 		
 		// DEFAULTS button at the top left corner
