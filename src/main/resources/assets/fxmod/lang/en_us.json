@@ -66,11 +66,17 @@
 
       "fxmod.mod.betterzoom.name": "Zoom",
 
-      "fxmod.mod.beeinfo.name": "Bee info",
+      "fxmod.mod.beeinfo.name": "Bee Info",
       "fxmod.mod.beeinfo.tooltip": "Shows honey level and bee count in tooltip",
 
       "fxmod.mod.clearchat.name": "Chat History",
       "fxmod.mod.clearchat.tooltip": "Disables clearing chat history when you get DC'd from a server.\nF3+D will still clear chat",
+
+      "fxmod.mod.betterhurtcam.name": "Better Hurt Cam",
+      "fxmod.mod.betterhurtcam.tooltip": "Removes the tilt when you get hit.\nIf you just want to lower the tilt amount, its in settings",
+
+      "fxmod.mod.noheartblink.name": "No Heart Blink",
+      "fxmod.mod.noheartblink.tooltip": "Disables blinking your hearts when you get hit. Easier to see health in pvp.",
 
   "######### Text display stuff": "",
     "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",

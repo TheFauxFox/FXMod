@@ -48,7 +48,9 @@ public class FXOptions
 		beeInfo,
 		pingDisplay,
 		technoRender,
-		dontClearChat
+		dontClearChat,
+		betterHurtCam,
+		noHeartBlink
 	;
 
 	public FXOptions()
@@ -181,6 +183,20 @@ public class FXOptions
 				true
 		);
 		features.put("clearchat", dontClearChat);
+
+		betterHurtCam = SimpleOption.ofBoolean(
+				"fxmod.mod.betterhurtcam.name",
+				tooltip("fxmod.mod.betterhurtcam.tooltip", false),
+				false
+		);
+		features.put("betterhurtcam", betterHurtCam);
+
+		noHeartBlink = SimpleOption.ofBoolean(
+				"fxmod.mod.noheartblink.name",
+				tooltip("fxmod.mod.noheartblink.tooltip", false),
+				false
+		);
+		features.put("noheartblink", noHeartBlink);
 
 		init();
 	}
