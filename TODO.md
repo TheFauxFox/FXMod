@@ -14,6 +14,7 @@
 - [x] Precice block placement
 - [x] Low Fire
 - [x] Bee Info
+- [x] Toggleable ping display
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
@@ -26,7 +27,6 @@
 - [ ] Fast Trade
 - [ ] GUI Blur
 - [ ] Disable Damage Tilt
-- [ ] Toggleable ping display
 - [ ] Tooltip fix
 - [ ] Clear water
 - [ ] Don't clear chat history

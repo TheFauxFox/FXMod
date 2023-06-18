@@ -34,6 +34,7 @@ public class FXSettingsScreen extends Screen
 		this.list.addOptionEntry(FXMod.OPTIONS.noPotionParticles, FXMod.OPTIONS.fpsdisplay);
 		this.list.addOptionEntry(FXMod.OPTIONS.spawnerESP, FXMod.OPTIONS.spawnerESPTags);
 		this.list.addOptionEntry(FXMod.OPTIONS.noFog, FXMod.OPTIONS.lowFire);
+		this.list.addOptionEntry(FXMod.OPTIONS.pingDisplay);
 		this.list.addCategoryEntry("fxmod.options.category.tools");
 		this.list.addOptionEntry(FXMod.OPTIONS.toolWarning, FXMod.OPTIONS.noToolBreaking);
 		this.list.addOptionEntry(FXMod.OPTIONS.preciseBlockPlace);

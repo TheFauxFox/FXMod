@@ -37,6 +37,9 @@
       "fxmod.mod.lowfire.name": "Low Fire",
       "fxmod.mod.lowfire.tooltip": "Lowers the fire overlay so it's not annoying",
 
+      "fxmod.mod.pingdisplay.name": "Better Ping",
+      "fxmod.mod.pingdisplay.tooltip": "Shows the ping in MS rather than the little bars",
+
     ">>>######### TOOLS Category": "",
       "fxmod.mod.toolwarning.name": "Tool Warning",
       "fxmod.mod.toolwarning.tooltip": "When your tool gets close to breaking, a message will appear.",

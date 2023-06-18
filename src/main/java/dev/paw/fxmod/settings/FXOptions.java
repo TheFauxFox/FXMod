@@ -31,21 +31,22 @@ public class FXOptions
 
 	// all the FEATURES
 	public final SimpleOption<Boolean>
-			fullbright,
-			noToolBreaking,
-			toolWarning,
-			beeESP,
-			noPotionParticles,
-			freecam,
-			freecamOutline,
-			fpsdisplay,
-			step,
-			spawnerESP,
-			spawnerESPTags,
-			noFog,
-			preciseBlockPlace,
-			lowFire,
-			beeInfo
+		fullbright,
+		noToolBreaking,
+		toolWarning,
+		beeESP,
+		noPotionParticles,
+		freecam,
+		freecamOutline,
+		fpsdisplay,
+		step,
+		spawnerESP,
+		spawnerESPTags,
+		noFog,
+		preciseBlockPlace,
+		lowFire,
+		beeInfo,
+		pingDisplay
 	;
 
 	public FXOptions()
@@ -149,14 +150,21 @@ public class FXOptions
 				tooltip("fxmod.mod.lowfire.tooltip", true),
 				true
 		);
-		features.put("preciseblockplacing", lowFire);
+		features.put("lowfire", lowFire);
 
 		beeInfo = SimpleOption.ofBoolean(
 				"fxmod.mod.beeinfo.name",
 				tooltip("fxmod.mod.beeinfo.tooltip", true),
 				true
 		);
-		features.put("preciseblockplacing", beeInfo);
+		features.put("beeinfo", beeInfo);
+
+		pingDisplay = SimpleOption.ofBoolean(
+				"fxmod.mod.pingdisplay.name",
+				tooltip("fxmod.mod.pingdisplay.tooltip", true),
+				true
+		);
+		features.put("pingdisplay", beeInfo);
 
 		init();
 	}
