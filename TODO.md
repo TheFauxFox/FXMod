@@ -32,4 +32,3 @@
 - [ ] Don't clear chat history
 - [ ] Dark loading screen
 - [ ] Light level overlay
-- [ ] Screen title popup fixer
