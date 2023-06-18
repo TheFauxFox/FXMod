@@ -18,6 +18,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.client.tutorial.TutorialStep;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.item.Item;
@@ -62,6 +63,9 @@ public class FXMod implements ClientModInitializer {
         registerCallbacks();
 
         LOGGER.info("Loaded");
+        MC.execute(() -> {
+            MinecraftClient.getInstance().getTutorialManager().setStep(TutorialStep.NONE); // Fuck you.
+        });
     }
 
     private void registerKeybinds()
