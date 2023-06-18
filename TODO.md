@@ -25,7 +25,6 @@
 - [ ] Refill hand
 - [ ] No break swap stop (dont cancel block breaking on tool swap)
 - [ ] Fast Trade
-- [ ] GUI Blur
 - [ ] Disable Damage Tilt
 - [ ] Tooltip fix
 - [ ] Don't clear chat history
