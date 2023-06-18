@@ -28,7 +28,6 @@
 - [ ] GUI Blur
 - [ ] Disable Damage Tilt
 - [ ] Tooltip fix
-- [ ] Clear water
 - [ ] Don't clear chat history
 - [ ] Dark loading screen
 - [ ] Light level overlay
