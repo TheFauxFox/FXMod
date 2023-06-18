@@ -15,6 +15,7 @@
 - [x] Low Fire
 - [x] Bee Info
 - [x] Toggleable ping display
+- [x] Technopig (May his memory live on)
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging
@@ -30,6 +31,5 @@
 - [ ] Don't clear chat history
 - [ ] Dark loading screen
 - [ ] Light level overlay
-- [ ] Technopig (RIP)
 - [ ] Hide tutorial BS
 - [ ] Screen title popup fixer

@@ -46,7 +46,8 @@ public class FXOptions
 		preciseBlockPlace,
 		lowFire,
 		beeInfo,
-		pingDisplay
+		pingDisplay,
+		technoRender
 	;
 
 	public FXOptions()
@@ -164,7 +165,14 @@ public class FXOptions
 				tooltip("fxmod.mod.pingdisplay.tooltip", true),
 				true
 		);
-		features.put("pingdisplay", beeInfo);
+		features.put("pingdisplay", pingDisplay);
+
+		technoRender = SimpleOption.ofBoolean(
+				"fxmod.mod.techno.name",
+				tooltip("fxmod.mod.techno.tooltip", true),
+				true
+		);
+		features.put("technoRender", technoRender);
 
 		init();
 	}
