@@ -50,7 +50,8 @@ public class FXOptions
 		technoRender,
 		dontClearChat,
 		betterHurtCam,
-		noHeartBlink
+		noHeartBlink,
+		panoramaMaker
 	;
 
 	public FXOptions()
@@ -197,6 +198,13 @@ public class FXOptions
 				false
 		);
 		features.put("noheartblink", noHeartBlink);
+
+		panoramaMaker = SimpleOption.ofBoolean(
+				"fxmod.mod.panomaker.name",
+				tooltip("fxmod.mod.panomaker.tooltip", false),
+				false
+		);
+//		features.put("panoramamaker", panoramaMaker) // DO NOT UNCOMMENT IT WILL BREAK THINGS
 
 		init();
 	}

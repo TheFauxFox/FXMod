@@ -72,5 +72,9 @@ public class GameRendererMixin {
         if (fov != zoomedFov) {
             cir.setReturnValue(zoomedFov);
         }
+
+        if (FXMod.INSTANCE.panoramaMaker.isRunning) {
+            cir.setReturnValue(90D);
+        }
     }
 }

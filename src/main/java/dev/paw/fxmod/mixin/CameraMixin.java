@@ -1,6 +1,7 @@
 package dev.paw.fxmod.mixin;
 
 import dev.paw.fxmod.FXMod;
+import dev.paw.fxmod.utils.PanoramaMaker;
 import net.minecraft.client.render.Camera;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.vehicle.BoatEntity;
@@ -85,6 +86,15 @@ abstract class CameraMixin
     {
         if(FXMod.OPTIONS.freecam.getValue()) {
             info.setReturnValue(true);
+        }
+    }
+
+    // Pano Maker stuff
+    @Inject(method = "update", at = @At("TAIL"))
+    private void updateYawPitch(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
+        if (FXMod.INSTANCE.panoramaMaker.isRunning) {
+            PanoramaMaker.Facing facing = PanoramaMaker.Facing.getIndex(FXMod.INSTANCE.panoramaMaker.tick);
+            setRotation(facing.yaw, facing.pitch);
         }
     }
 }

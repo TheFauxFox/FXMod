@@ -40,8 +40,9 @@ public class FXMod implements ClientModInitializer {
     public static FXOptions OPTIONS;
     public static final FXModVars VARS = new FXModVars();
     public static final PreciseBlockPlacing precisePlacing = new PreciseBlockPlacing();
+    public final PanoramaMaker panoramaMaker = new PanoramaMaker();
 
-    public KeyBinding toolBreakingOverrideKeybind, zoomKeyBind;
+    public KeyBinding toolBreakingOverrideKeybind, zoomKeyBind, panoMakerKeybind;
 
     public static final ZoomInstance okZoom = new ZoomInstance(
         new Identifier("fxmod:zoom"),
@@ -73,6 +74,7 @@ public class FXMod implements ClientModInitializer {
         KeyBinding stepKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.step.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "FXMod"));
         toolBreakingOverrideKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.notoolbreak.keybind", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_ALT, "FXMod"));
         zoomKeyBind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.betterzoom.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "FXMod"));
+        panoMakerKeybind = KeyBindingHelper.registerKeyBinding(new KeyBinding("fxmod.mod.panomaker.name", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_F4, "FXMod"));
 
         ClientTickEvents.END_WORLD_TICK.register(client ->
         {
@@ -118,6 +120,10 @@ public class FXMod implements ClientModInitializer {
         ClientTickEvents.END_WORLD_TICK.register(clientWorld ->
         {
             precisePlacing.clientTick(MC);
+
+            if (!panoramaMaker.isRunning && panoMakerKeybind.wasPressed()) {
+                panoramaMaker.start();
+            }
 
             if (okZoom.setZoom(zoomKeyBind.isPressed())) {
                 VARS.wasZooming = true;
@@ -212,6 +218,12 @@ public class FXMod implements ClientModInitializer {
                 }
             })
         );
+
+        WorldRenderEvents.END.register((context -> {
+            if (panoramaMaker.isRunning) {
+                panoramaMaker.doTick();
+            }
+        }));
 
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             try {

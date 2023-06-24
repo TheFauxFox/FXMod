@@ -18,6 +18,7 @@
 - [x] Technopig (May his memory live on)
 - [x] Hide tutorial BS
 - [x] Don't clear chat history
+- [x] Panorama pack maker
 - [ ] Item ESP
 - [ ] Item Scrolling
 - [ ] Click dragging

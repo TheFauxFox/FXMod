@@ -78,6 +78,9 @@
       "fxmod.mod.noheartblink.name": "No Heart Blink",
       "fxmod.mod.noheartblink.tooltip": "Disables blinking your hearts when you get hit. Easier to see health in pvp.",
 
+      "fxmod.mod.panomaker.name": "Panorama Maker",
+      "fxmod.mod.panomaker.tooltip": "Creates a resource pack with a new panorama from your current surroundings for the title screen\n§cYOU MUST NOT BE IN FULLSCREEN OR MAXIMIZED FOR THIS TO WORK!",
+
   "######### Text display stuff": "",
     "fxmod.chat.prefix": "§8[§6FXMod§8]§r %s",
 
@@ -89,5 +92,9 @@
 
     "fxmod.mod.beeinfo.tooltip.bees": "§7Bees: %d",
     "fxmod.mod.beeinfo.tooltip.honey": "§7Honey: %s",
-    "fxmod.mod.beeinfo.tooltip.name": "§7- %s"
+    "fxmod.mod.beeinfo.tooltip.name": "§7- %s",
+
+    "fxmod.mod.panomaker.onEnable": "§6PanoramaMaker§r is now §arunning§r, please stand still.",
+    "fxmod.mod.panomaker.onDisable": "§6PanoramaMaker§r is now §cfinished§r. The resource pack has been created as §6%s§r",
+    "fxmod.mod.panomaker.note": "§7Please note, you may want to change the name & description!"
 }
