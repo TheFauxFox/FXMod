@@ -1,4 +1,4 @@
-package io.github.ennuil.libzoomer.api;
+package dev.paw.fxmod.libzoomer.api;
 
 /**
  * The transition mode is a sub-instance that handles zooming itself.

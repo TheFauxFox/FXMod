@@ -2,8 +2,8 @@ package dev.paw.fxmod.mixin;
 
 import dev.paw.fxmod.FXMod;
 import dev.paw.fxmod.utils.ZoomUtils;
-import io.github.ennuil.libzoomer.api.ZoomInstance;
-import io.github.ennuil.libzoomer.api.ZoomRegistry;
+import dev.paw.fxmod.libzoomer.api.ZoomInstance;
+import dev.paw.fxmod.libzoomer.api.ZoomRegistry;
 import net.minecraft.client.Mouse;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

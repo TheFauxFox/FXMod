@@ -1,8 +1,8 @@
-package io.github.ennuil.libzoomer.api;
+package dev.paw.fxmod.libzoomer.api;
 
 import org.jetbrains.annotations.Nullable;
 
-import io.github.ennuil.libzoomer.api.transitions.InstantTransitionMode;
+import dev.paw.fxmod.libzoomer.api.transitions.InstantTransitionMode;
 import net.minecraft.util.Identifier;
 
 /**

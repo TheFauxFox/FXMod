@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import io.github.ennuil.libzoomer.impl.SpyglassHelper;
+import dev.paw.fxmod.libzoomer.impl.SpyglassHelper;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.util.Identifier;
 

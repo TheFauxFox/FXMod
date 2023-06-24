@@ -1,4 +1,4 @@
-package io.github.ennuil.libzoomer.api;
+package dev.paw.fxmod.libzoomer.api;
 
 /**
  * The mouse modifier is the sub-instance that handles any change of behavior of the mouse.

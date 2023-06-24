@@ -1,6 +1,6 @@
-package io.github.ennuil.libzoomer.api.modifiers;
+package dev.paw.fxmod.libzoomer.api.modifiers;
 
-import io.github.ennuil.libzoomer.api.MouseModifier;
+import dev.paw.fxmod.libzoomer.api.MouseModifier;
 
 /**
  * A mouse modifier which reduces the cursor sensitivity with the transition mode's internal multiplier

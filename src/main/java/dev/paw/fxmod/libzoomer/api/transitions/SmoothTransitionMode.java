@@ -1,6 +1,6 @@
-package io.github.ennuil.libzoomer.api.transitions;
+package dev.paw.fxmod.libzoomer.api.transitions;
 
-import io.github.ennuil.libzoomer.api.TransitionMode;
+import dev.paw.fxmod.libzoomer.api.TransitionMode;
 import net.minecraft.util.math.MathHelper;
 
 /**

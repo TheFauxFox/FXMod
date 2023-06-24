@@ -1,4 +1,4 @@
-package io.github.ennuil.libzoomer.impl;
+package dev.paw.fxmod.libzoomer.impl;
 
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;

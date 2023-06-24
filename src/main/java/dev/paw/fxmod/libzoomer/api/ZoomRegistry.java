@@ -1,4 +1,4 @@
-package io.github.ennuil.libzoomer.api;
+package dev.paw.fxmod.libzoomer.api;
 
 import java.util.Set;
 
