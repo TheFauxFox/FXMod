@@ -1,0 +1,40 @@
+name: 'Build & Publish'
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 'Checkout Repo'
+        uses: actions/checkout@v3
+
+      - name: 'Validate gradle wrapper'
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: 'Setup JDK 17'
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 'Setup Gradle & build'
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
+          gradle-home-cache-cleanup: true
+          cache-read-only: false
+
+      - name: 'Get mod name'
+        id: mod_name
+        run: echo "VERSION=$(grep -oP '^version = \K.*' gradle.properties)" >> $GITHUB_OUTPUT
+
+      - name: 'Publish new release'
+        uses: softprops/action-gh-release@v1
+        with:
+          name: 'FXMod v${{steps.mod_name.outputs.VERSION}}'
+          files: 'build/libs/FXMod-${{steps.mod_name.outputs.VERSION}}.jar'
